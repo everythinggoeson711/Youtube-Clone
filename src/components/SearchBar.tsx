@@ -28,12 +28,12 @@ export const SearchBar = () => {
         type="text"
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
-        placeholder="Search"
-        className="h-10 w-full rounded-l-full border border-white/10 bg-white/10 px-4 outline-none focus:border-blue-500"
+        placeholder="Tìm kiếm"
+        className="h-10 w-full rounded-l-full border border-white/10 bg-transparent px-4 outline-none focus:border-blue-500"
       />
       <button
         type="submit"
-        className="flex h-10 items-center rounded-r-full border border-l-0 border-white/10 bg-white/10 px-6 hover:bg-white/20"
+        className="border-l-1 flex h-10 items-center rounded-r-full border border-white/10 bg-white/10 px-6 hover:bg-white/20"
       >
         <SearchIcon />
       </button>

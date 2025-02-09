@@ -39,9 +39,11 @@ const SearchPage = () => {
                 className="grid gap-5 md:grid-cols-[500px_1fr] [&_img]:h-64"
                 key={video.id.videoId}
                 fullText
-                avatar={video.avatar}
                 viewCount={video.statistics?.viewCount}
-                thumbnail={video.snippet.thumbnails.high.url}
+                thumbnail={
+                  video.snippet.thumbnails?.high?.url ||
+                  video.snippet.thumbnails?.default?.url
+                }
                 duration={video.contentDetails?.duration}
                 title={video.snippet.title}
                 channelId={video.snippet.channelId}

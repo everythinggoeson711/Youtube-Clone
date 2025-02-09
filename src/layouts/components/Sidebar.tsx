@@ -3,15 +3,20 @@ import {
   ClockIcon,
   CourseIcon,
   FlagIcon,
+  GameIcon,
   HelpIcon,
   HistoryIcon,
   HomeIcon,
   LikeIcon,
+  MusicIcon,
   MyChannelIcon,
+  NewsIcon,
   PlaylistIcon,
   ReportIcon,
   SettingIcon,
   ShortVideoIcon,
+  SportIcon,
+  TrendingIcon,
   VideoIcon,
 } from "@/components/icon";
 import { SidebarGroup, SidebarItem } from "@/components/Sidebar";
@@ -26,7 +31,7 @@ const mainNav = {
     },
     {
       title: "Shorts",
-      url: "#",
+      url: "/short",
       icon: ShortVideoIcon,
     },
     {
@@ -38,7 +43,7 @@ const mainNav = {
   activity: [
     {
       title: "Kênh của bạn",
-      url: "#",
+      url: "/my-channel",
       icon: MyChannelIcon,
     },
     {
@@ -48,7 +53,7 @@ const mainNav = {
     },
     {
       title: "Danh sách phát",
-      url: "#",
+      url: "/feed/playlists",
       icon: PlaylistIcon,
     },
     {
@@ -63,12 +68,12 @@ const mainNav = {
     },
     {
       title: "Xem sau",
-      url: "#",
+      url: "/watch-later",
       icon: ClockIcon,
     },
     {
       title: "Video đã thích",
-      url: "#",
+      url: "/liked-videos",
       icon: LikeIcon,
     },
   ],
@@ -92,6 +97,33 @@ const mainNav = {
       title: "Gửi ý kiến phản hồi",
       url: "#",
       icon: ReportIcon,
+    },
+  ],
+  explore: [
+    {
+      title: "Thịnh hành",
+      url: "/feed/trending",
+      icon: TrendingIcon,
+    },
+    {
+      title: "Âm nhạc",
+      url: "#",
+      icon: MusicIcon,
+    },
+    {
+      title: "Trò chơi",
+      url: "#",
+      icon: GameIcon,
+    },
+    {
+      title: "Tin tức",
+      url: "#",
+      icon: NewsIcon,
+    },
+    {
+      title: "Thể thao",
+      url: "#",
+      icon: SportIcon,
     },
   ],
 };
@@ -131,6 +163,17 @@ export const Sidebar = ({ className }: SidebarProps) => {
         </SidebarGroup>
         <SidebarGroup>
           {mainNav.action.map((item) => (
+            <SidebarItem
+              key={item.title}
+              title={item.title}
+              url={item.url}
+              icon={<item.icon />}
+            />
+          ))}
+        </SidebarGroup>
+        <SidebarGroup>
+          <h1 className="mx-2 mb-2 text-sm font-medium">Khám phá</h1>
+          {mainNav.explore.map((item) => (
             <SidebarItem
               key={item.title}
               title={item.title}

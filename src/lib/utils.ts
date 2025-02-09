@@ -22,26 +22,35 @@ export function convertISO8601ToHHMMSS(duration: string) {
   ].join(":");
 }
 
-export function formatViewCount(views: number) {
-  if (views >= 1_000_000) {
-    return (
-      new Intl.NumberFormat("en-US", {
-        notation: "compact",
-        maximumFractionDigits: 1,
-      }).format(views) + " views"
-    );
+export const formatViews = (viewCount: number) => {
+  if (viewCount >= 1000000) {
+    return `${(viewCount / 1000000).toFixed(1)}Tr lượt xem`;
+  } else if (viewCount >= 1000) {
+    return `${(viewCount / 1000).toFixed(1)}N lượt xem`;
   }
-  return new Intl.NumberFormat("en-US").format(views) + " views";
-}
+  return `${viewCount} lượt xem`;
+};
 
 export function formatSubscribers(count: number) {
   if (count >= 1e9) {
-    return (count / 1e9).toFixed(2).replace(/\.?0+$/, "") + " B subscribers";
+    return (count / 1e9).toFixed(2).replace(/\.?0+$/, "") + " B người đăng ký";
   } else if (count >= 1e6) {
-    return (count / 1e6).toFixed(2).replace(/\.?0+$/, "") + " M subscribers";
+    return (count / 1e6).toFixed(2).replace(/\.?0+$/, "") + " Tr người đăng ký";
   } else if (count >= 1e3) {
-    return (count / 1e3).toFixed(2).replace(/\.?0+$/, "") + " K subscribers";
+    return (count / 1e3).toFixed(2).replace(/\.?0+$/, "") + " N người đăng ký";
   } else {
-    return count + " subscribers";
+    return count + " người đăng ký";
+  }
+}
+
+export function formatLikes(count: number) {
+  if (count >= 1e9) {
+    return (count / 1e9).toFixed(2).replace(/\.?0+$/, "") + " B";
+  } else if (count >= 1e6) {
+    return (count / 1e6).toFixed(2).replace(/\.?0+$/, "") + " M";
+  } else if (count >= 1e3) {
+    return (count / 1e3).toFixed(2).replace(/\.?0+$/, "") + " N";
+  } else {
+    return count;
   }
 }

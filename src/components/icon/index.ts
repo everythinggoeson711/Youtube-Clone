@@ -1,3 +1,9 @@
+import { TrendingIcon } from "./TrendingIcon";
+import { SportIcon } from "./SportIcon";
+import { NewsIcon } from "./NewsIcon";
+import { MusicIcon } from "./MusicIcon";
+import { GameIcon } from "./GameIcon";
+import { SaveIcon } from "./SaveIcon";
 import { DownloadIcon } from "./DownloadIcon";
 import { EllipsisIcon } from "./EllipsisIcon";
 import { DislikeIcon } from "./DislikeIcon";
@@ -50,4 +56,10 @@ export {
   DislikeIcon,
   EllipsisIcon,
   DownloadIcon,
+  SaveIcon,
+  GameIcon,
+  MusicIcon,
+  NewsIcon,
+  SportIcon,
+  TrendingIcon,
 };
